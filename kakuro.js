@@ -1,4 +1,4 @@
-function makeBoard(base, height, width, difficulty){
+/*function makeBoard(base, height, width, difficulty){
 	const rows=[];
 	for(let i=0; i<height; i+=1){
 		rows[i]=[];
@@ -53,7 +53,7 @@ function getNFromAToB(nums, n, a, b){
 			c++;
 		}
 	}
-}
+}*/
 
 function constructBoard(event){
 	let height=event.target.height.value;
