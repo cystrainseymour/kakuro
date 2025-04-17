@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/6664/6664427.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crackuro!</title>
+  <script language="javascript">
+	function checkInput(ob) {
+	  var invalidChars = /[^0-9]/gi
+	  if(invalidChars.test(ob.value)) {
+				ob.value = ob.value.replace(invalidChars,"");
+		  }
+	}
+  </script> src="kakuro.js"></src>
+  <script type="module"  src="./kakuro.js"></src>
+</head>
+<body>
+	<h1>Crackuro!</h1>
+	<div id="container">
+		<form id="menu">
+			<div id="diff" class="menu">
+				<label id="diff-lab">Difficulty: </label>
+				<input type="number" id="diff-inp" required />
+			</div>
+			<div id="size" class="menu">
+				<label id="size-lab">Size: </label>
+				<input type="number" id="size-inp" required />
+			</div>
+			<input type="submit" id="submit" required />
+		</form>	
+		<table id="board">
+		<tr>
+			<td><textarea maxlength="1" onkeyup="checkInput(this)"></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+			<td><textarea></textarea>
+			</td>
+		</tr>
+	</table>
+	<div id="blank"></div>
+	</div>
+</body>
