@@ -8,8 +8,7 @@ function makeBoard(base, height, width, difficulty){
 		preventBigBlocksCol(base, rows, i);
 	}
 }
-	
-	
+		
 function preventBigBlocksRow(base, rows, r){
 	let width=rows[0].length;
 	let cur=0;
@@ -46,6 +45,7 @@ function shuffle(array) {
 }
 	
 function getNFromAToB(nums, n, a, b){
+	
 	let c=0;
 	for(let i=a; i<=b && c<n; i++){
 		if(Math.floor(Math.random())){
@@ -53,4 +53,28 @@ function getNFromAToB(nums, n, a, b){
 			c++;
 		}
 	}
+}
+
+function constructBoard(event){
+	let height=event.target.height.value;
+	let width=event.target.width.value;
+	document.getElementById("board").remove();
+	let table = document.createElement("table", {id:"board"});
+	
+	for(var i=0; i<height; i++){
+		let row = document.createElement("tr", {id:i});
+		for(var j=0; j<width; j++){
+			let cell = document.createElement("td", {id:j});
+			
+			cell.appendChild(
+			document.createElement("textarea", 
+			{maxlength:"1", onkeyup:"checkInput(this)"})
+			);
+			
+			row.appendChild(cell);
+		}
+		table.appendChild(row);
+	}
+	var board_cont = document.getElementById("board_cont");
+	board.appendChild(table);
 }
