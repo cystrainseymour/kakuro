@@ -1,4 +1,4 @@
-=function constructBoard(event){
+function constructBoard(event){
 	let height=event.target.height.value;
 	let width=event.target.width.value;
 	document.getElementById("board").remove();
