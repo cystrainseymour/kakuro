@@ -1,4 +1,5 @@
 function constructBoard(event){
+	console.log("started");
 	let height=event.target.height.value;
 	let width=event.target.width.value;
 	document.getElementById("board").remove();
@@ -25,6 +26,7 @@ function constructBoard(event){
 }
 
 function getNums(height, width, base){
+	console.log("started1");
 	
 	const arr = new Array(height).fill(new Array(width));
 	var used = new Array(base).fill(0);
