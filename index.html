@@ -19,7 +19,7 @@
 <body>
 	<h1>Crackuro!</h1>
 	<div id="container">
-		<form id="menu" onsubmit="constructBoard(event)">
+		<form id="menu">
 			<div id="diff" class="menu">
 				<label id="diff-lab" for = "diff-inp">Difficulty: </label>
 				<input type="number" id="diff-inp" name="diff" required />
@@ -32,7 +32,7 @@
 				<label id="width-lab" for = "width-inp">Size: </label>
 				<input type="number" id="width-inp" name="width" required />
 			</div>
-			<input type="submit" id="submit" required />
+			<input type="submit" id="submit" onclick = "constructBoard()" required />
 		</form>
 		<div id="board_cont">
 		</div>

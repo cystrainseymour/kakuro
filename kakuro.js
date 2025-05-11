@@ -1,8 +1,14 @@
-function constructBoard(event){
+function constructBoard(){
 	console.log("started");
-	let height=event.target.height.value;
-	let width=event.target.width.value;
+	let menu = document.getElementById("menu");
+	let height = menu.getElementById("height-inp").value;
+	let width = menu.getElementById("width-inp").value;
+	
+	//let height=event.target.height.value;
+	//let width=event.target.width.value;
+	
 	document.getElementById("board").remove();
+	
 	let table = document.createElement("table", {id:"board"});
 	let nums = getNums(height, width, 10);
 	
