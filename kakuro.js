@@ -45,7 +45,7 @@ function getNums(height, width, base){
 	
 	for(var j = 0; j < width; j++){
 		used = new Array(base).fill(0);
-		for(var  = 0; i < height; i++){
+		for(var i = 0; i < height; i++){
 			if(arr[i][j] === 0){
 				used = new Array(base).fill(0);
 			} else if(used[arr[i][j]]){
