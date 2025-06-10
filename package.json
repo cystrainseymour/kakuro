@@ -1,0 +1,21 @@
+{
+  "name": "kakuro",
+  "version": "1.0.0",
+  "description": "kakuro",
+  "main": "index.html",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cystrainseymour/kakuro.git"
+  },
+  "author": "Cy Strain-Seymour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cystrainseymour/kakuro/issues"
+  },
+  "homepage": "https://github.com/cystrainseymour/kakuro#readme"
+}
