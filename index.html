@@ -19,21 +19,21 @@
 <body>
 	<h1>Crackuro!</h1>
 	<div id="container">
-		<form id="menu">
+		<div id="menu">
 			<div id="diff" class="menu">
 				<label id="diff-lab" for = "diff-inp">Difficulty: </label>
-				<input type="number" id="diff-inp" name="diff" required />
+				<input type="number" id="diff-inp" name="diff"/>
 			</div>
 			<div id="height" class="menu">
 				<label id="height-lab" for = "height-inp">Size: </label>
-				<input type="number" id="height-inp" name="height" required />
+				<input type="number" id="height-inp" name="height"/>
 			</div>
 			<div id="width" class="menu">
 				<label id="width-lab" for = "width-inp">Size: </label>
-				<input type="number" id="width-inp" name="width" required />
+				<input type="number" id="width-inp" name="width"/>
 			</div>
-			<input type="submit" id="submit" onclick = "constructBoard()" required />
-		</form>
+			<button onclick = "constructBoard()" />
+		</div>
 		<div id="board_cont">
 		</div>
 	<div id="blank"></div>
