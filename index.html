@@ -8,7 +8,7 @@
   <title>Crackuro!</title>
   <script language="javascript">
 	function checkInput(ob) {
-	  var invalidChars = /[^0-9]/gi
+	  var invalidChars = /[^0-9]/gi;
 	  if(invalidChars.test(ob.value)) {
 				ob.value = ob.value.replace(invalidChars,"");
 		  }
@@ -25,16 +25,17 @@
 				<input type="number" id="diff-inp" name="diff"/>
 			</div>
 			<div id="height" class="menu">
-				<label id="height-lab" for = "height-inp">Size: </label>
+				<label id="height-lab" for = "height-inp">Height: </label>
 				<input type="number" id="height-inp" name="height"/>
 			</div>
 			<div id="width" class="menu">
-				<label id="width-lab" for = "width-inp">Size: </label>
+				<label id="width-lab" for = "width-inp">Width: </label>
 				<input type="number" id="width-inp" name="width"/>
 			</div>
-			<button onclick = "constructBoard()" />
+			<button id = "construct_board">Go!</button>
 		</div>
 		<div id="board_cont">
+			<div id="board"></div>
 		</div>
 	<div id="blank"></div>
 	</div>

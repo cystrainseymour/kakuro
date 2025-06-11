@@ -81,18 +81,25 @@ td textarea {
 	width:100%;
 	height:100%;
 	align-content: center;
+	resize:none;
+	text-align:right;
 }
 
 textarea.empty {
 	background-color: black;
 }
 
-td.preset:before {
+.preset:before {
     content: ''; 
     height: 1px;
-    width: 10.8%;
+    width: var(--somewidth, 73px);
     background-color: black;
     position: absolute;
-    transform: rotate(45deg);
-    transform-origin: 1px 1px;
+    transform: rotate(var(--someangle, "45deg"));
+    transform-origin: 0px 0px;
+}
+
+button {
+	height : 40px;
+	width : 90px;
 }
