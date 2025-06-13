@@ -15,6 +15,7 @@ function constructBoard(h, w, b, d){
 	
 	document.getElementById("result").style["visibility"] = "hidden";
 	document.getElementById("check").addEventListener("click",checkHandler);
+	document.getElementById("check").disabled = false;
 	
 	height = h;
 	width = w;
@@ -228,6 +229,7 @@ function add_up(){
 function check(){
 	if(add_up()){
 		document.getElementById("check").removeEventListener("click", checkHandler);
+		document.getElementById("check").disabled = true;
 		document.getElementById("result").children[0].textContent = "Congrats";
 		let rows = document.getElementById("board").children;
 		for(let i = 1; i < height + 1; i ++){
@@ -255,6 +257,11 @@ function updateModel(ta){
 }
 
 function erase(){
+	
+	document.getElementById("result").style["visibility"] = "hidden";
+	document.getElementById("check").addEventListener("click",checkHandler);
+	document.getElementById("check").disabled = false;
+	
 	for(let i = 0; i < height + 1; i ++){
 		for(let j = 0; j < width + 1; j ++){
 			if(row_model[i][j] >= 1){
@@ -326,6 +333,7 @@ function render_table(){
 				ta.addEventListener("keyup",function(){updateModel(ta)} );
 				ta.setAttribute("maxlength", 1);
 				ta.style["text-align"] = "center";
+				ta.classList.add("editable");
 			}
 			//cell.children[0].value = nums[i][j];
 			

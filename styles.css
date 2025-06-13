@@ -93,8 +93,9 @@ td textarea {
 	text-align:right;
 }
 
-textarea.empty {
-	background-color: black;
+textarea.editable:disabled {
+	background-color: white;
+	border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
 }
 
 .preset:before {
@@ -105,6 +106,12 @@ textarea.empty {
     position: absolute;
     transform: rotate(var(--someangle, "45deg"));
     transform-origin: 0px 0px;
+}
+
+.preset{
+	background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+    color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+    border-color: rgba(118, 118, 118, 0.3);
 }
 
 button {
@@ -124,4 +131,8 @@ button {
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+button:disabled{
+	background-color: ButtonFace;
 }
