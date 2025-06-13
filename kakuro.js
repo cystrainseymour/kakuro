@@ -354,6 +354,14 @@ function render_table(){
 	board_cont.insertBefore(table,board_cont.children[0]);
 }
 
+function helpHandler(){
+	if(document.getElementById("instructions").style["display"] == "block"){
+		document.getElementById("instructions").style["display"] = "none";
+	} else{
+		document.getElementById("instructions").style["display"] = "block";
+	}
+}
+
 document.getElementById("construct_board").addEventListener("click",
 function(){constructBoard(
 parseInt(document.getElementById("height-inp").value), 
@@ -364,5 +372,7 @@ parseInt(document.getElementById("diff-inp").value) )});
 document.getElementById("check").addEventListener("click",checkHandler);
 document.getElementById("reset").addEventListener("click",erase);
 document.getElementById("new").addEventListener("click",function(){constructBoard(height, width, base, difficulty)});
+
+document.getElementById("help").addEventListener("click",helpHandler);
 
 setUp();

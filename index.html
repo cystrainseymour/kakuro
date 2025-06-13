@@ -19,35 +19,49 @@
 <body>
 	<h1>Crackuro!</h1>
 	<div id="container">
-		<div id="menu">
-			<div id="base" class="menu">
-				<label id="base-lab" for = "base-inp">Base: </label>
-				<input type="number" id="base-inp" name="base"/>
+		<div class = "panel">
+			<div id="menu">
+				<div id="base" class="menu">
+					<label id="base-lab" for = "base-inp">Base: </label>
+					<input type="number" id="base-inp" name="base"/>
+				</div>
+				<div id="diff" class="menu">
+					<label id="diff-lab" for = "diff-inp">Difficulty: </label>
+					<input type="number" id="diff-inp" name="diff"/>
+				</div>
+				<div id="height" class="menu">
+					<label id="height-lab" for = "height-inp">Height: </label>
+					<input type="number" id="height-inp" name="height"/>
+				</div>
+				<div id="width" class="menu">
+					<label id="width-lab" for = "width-inp">Width: </label>
+					<input type="number" id="width-inp" name="width"/>
+				</div>
+				<button id = "construct_board">Go!</button>
+				<button id = "help">Help</button>
 			</div>
-			<div id="diff" class="menu">
-				<label id="diff-lab" for = "diff-inp">Difficulty: </label>
-				<input type="number" id="diff-inp" name="diff"/>
+			<div id = "instructions" class = "info">
+				<h3>Instructions</h3>
+				<p>Kakuro is like a crossword: there are hints for rows and for columns.
+				The difference is that these hints are numbers, not words, and they show 
+				what the sum of the numbers in the row to the right or the column below 
+				should be. Fill in the squares with single-digit numbers according to 
+				the hints, but you can't repeat digits in the same row or column: you 
+				can't have two nine's in the same row, for instance.</p>
+				<p>Adjust your puzzle's size and difficulty using the menu. If you want, 
+				you can play the game in a different base than decimal.</p>
 			</div>
-			<div id="height" class="menu">
-				<label id="height-lab" for = "height-inp">Height: </label>
-				<input type="number" id="height-inp" name="height"/>
-			</div>
-			<div id="width" class="menu">
-				<label id="width-lab" for = "width-inp">Width: </label>
-				<input type="number" id="width-inp" name="width"/>
-			</div>
-			<button id = "construct_board">Go!</button>
 		</div>
 		<div id="board_cont">
 			<div id="board"></div>
 		</div>
-		<div id="right-panel">
+		<div class = "panel">
 			<div id="check_reset">
 				<button id = "check">Check</button>
 				<button id = "reset">Reset</button>
 				<button id = "new">New</button>
 			</div>
-			<div id = "result">
+			<div id = "result" class = "info">
 				<p></p>
 			</div>
 		</div>
