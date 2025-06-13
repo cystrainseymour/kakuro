@@ -5,11 +5,20 @@ var width;
 var base;
 var difficulty;
 
-constructBoard(5, 5, 10, 1);
+function setUp(){
+	let defaults = [5, 5, 10, 1];	
+	
+	document.getElementById("height-inp").value = defaults[0];
+	document.getElementById("width-inp").value = defaults[1];
+	document.getElementById("base-inp").value = defaults[2];
+	document.getElementById("diff-inp").value = defaults[3];
+	
+	constructBoard(defaults[0], defaults[1], defaults[2], defaults[3]);
+}
 
 function constructBoard(h, w, b, d){
 	//console.log("started");
-	if(!h || !w || !d || b < 2){
+	if(!h || !w || !d || b < 3 || b > 36){
 		return;
 	}
 	
@@ -253,7 +262,7 @@ function updateModel(ta){
 	let r = ta.parentElement.getAttribute("id");
 	let c = ta.getAttribute("id");
 	//console.log(value, r, c);
-	row_model[r][c] = col_model[r][c] = parseInt(value);
+	row_model[r][c] = col_model[r][c] = parseInt(value, base);
 }
 
 function erase(){
@@ -316,14 +325,14 @@ function render_table(){
 						row_model[i][j] = 0.5;
 					} else{
 						//console.log(row_model[i][j], i, j);
-						my_str = (row_model[i][j] * -1).toString() + "\n";
+						my_str = (row_model[i][j] * -1).toString(base) + "\n";
 					}
 				}
 				if(col_model[i][j]){
 					if(col_model[i][j] > 0){
 						col_model[i][j] = 0.5;
 					} else{
-						my_str = my_str + (col_model[i][j] * -1).toString() + "  ".repeat(width*2);
+						my_str = my_str + (col_model[i][j] * -1).toString(base) + "  ".repeat(width*2);
 					}
 				}
 				
@@ -346,10 +355,14 @@ function render_table(){
 }
 
 document.getElementById("construct_board").addEventListener("click",
-function(){constructBoard(parseInt(document.getElementById("height-inp").value), 
-parseInt(document.getElementById("width-inp").value), 10, 
-parseInt(document.getElementById("diff-inp").value))});
+function(){constructBoard(
+parseInt(document.getElementById("height-inp").value), 
+parseInt(document.getElementById("width-inp").value), 
+parseInt(document.getElementById("base-inp").value), 
+parseInt(document.getElementById("diff-inp").value) )});
 
 document.getElementById("check").addEventListener("click",checkHandler);
 document.getElementById("reset").addEventListener("click",erase);
 document.getElementById("new").addEventListener("click",function(){constructBoard(height, width, base, difficulty)});
+
+setUp();
