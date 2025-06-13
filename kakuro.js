@@ -3,12 +3,13 @@ var col_model;
 var height;
 var width;
 var base;
+var difficulty;
 
-constructBoard(5,5);
+constructBoard(5, 5, 10, 1);
 
-function constructBoard(h, w){
+function constructBoard(h, w, b, d){
 	//console.log("started");
-	if(!h || !w){
+	if(!h || !w || !d || b < 2){
 		return;
 	}
 	
@@ -17,7 +18,9 @@ function constructBoard(h, w){
 	
 	height = h;
 	width = w;
-	base = 10;
+	base = b;
+	difficulty = d;
+	
 	//console.log(height);
 	//console.log(width);
 	row_model = Array.from({ length: height + 1 }, () => new Array(width + 1).fill(0));
@@ -48,12 +51,21 @@ function getNums(){
 	
 	for(var i = 1; i < height + 1; i++){
 		used.fill(0);
+		let k = difficulty;
 		for(var j = 1; j < width + 1; j++){
 			let num = Math.floor(Math.random()*base - 1) + 1;
+			if(k<0){
+				k = difficulty;
+			}
 			if(used[num]){
-				used.fill(0);
-				arr[i][j] = 0;
-			} else{
+				if(k) {
+					j --;
+				} else {
+					used.fill(0);
+					arr[i][j] = 0;
+				}
+				k--;
+			} else {
 				used[num] = 1;
 				//console.log(i);
 				//console.log(j);
@@ -327,8 +339,9 @@ function render_table(){
 
 document.getElementById("construct_board").addEventListener("click",
 function(){constructBoard(parseInt(document.getElementById("height-inp").value), 
-parseInt(document.getElementById("width-inp").value))});
+parseInt(document.getElementById("width-inp").value), 10, 
+parseInt(document.getElementById("diff-inp").value))});
 
 document.getElementById("check").addEventListener("click",checkHandler);
 document.getElementById("reset").addEventListener("click",erase);
-document.getElementById("new").addEventListener("click",function(){constructBoard(height, width)});
+document.getElementById("new").addEventListener("click",function(){constructBoard(height, width, base, difficulty)});
