@@ -366,6 +366,58 @@ function printHandler(){
 	window.print();
 }
 
+function moveFocus(direction){
+	let active = document.activeElement;
+	let ind = parseInt(active.id);
+	let siblings;
+	let row;
+	let rows;
+	let amount = 1;
+	try{
+		switch(direction){
+			case 0:
+				siblings = active.parentElement.parentElement.children;
+				while(ind - amount + 1 && siblings[ind - amount].children[0].disabled){
+					amount ++;
+				}
+				siblings[ind - amount].children[0].focus();
+				break;
+			case 1:
+				row = parseInt(active.parentElement.id);
+				rows = active.parentElement.parentElement.parentElement.children;
+				while(row - amount + 1 && rows[row - amount].children[ind].children[0].disabled){
+					amount ++;
+				}
+				rows[row - amount].children[ind].children[0].focus();
+				break;
+			case 2:
+				siblings = active.parentElement.parentElement.children;
+				while(ind + amount < width + 1 && siblings[ind + amount].children[0].disabled){
+					amount ++;
+				}
+				siblings[ind + amount].children[0].focus();
+				break;
+			case 3:
+				row = parseInt(active.parentElement.id);
+				rows = active.parentElement.parentElement.parentElement.children;
+				while(row + amount < height + 1 && rows[row + amount].children[ind].children[0].disabled){
+					amount ++;
+				}
+				rows[row + amount].children[ind].children[0].focus();
+				break;
+		}
+	} catch(err) {
+		console.log(err);
+	}
+}
+
+function arrowHandler(event){
+	let code = event.keyCode;
+	if(37 <= code && code <= 40){
+		moveFocus(code - 37);
+	}
+}
+
 document.getElementById("construct_board").addEventListener("click",
 function(){constructBoard(
 parseInt(document.getElementById("height-inp").value), 
@@ -379,5 +431,7 @@ document.getElementById("new").addEventListener("click",function(){constructBoar
 document.getElementById("print").addEventListener("click",printHandler);
 
 document.getElementById("help").addEventListener("click",helpHandler);
+
+window.addEventListener("keydown", arrowHandler);
 
 setUp();
