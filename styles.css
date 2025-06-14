@@ -1,160 +1,222 @@
-html,
-body {
-  margin: 0;
-  height: 100%;
-  background-color: hsl(186, 56%, 23%);
-  justify-content: center;
+@media screen{
+	
+	html, body {
+	  margin: 0;
+	  height: 100%;
+	  background-color: hsl(186, 56%, 23%);
+	  justify-content: center;
+	}
+
+	#container {
+	  display: flex;
+	  flex-direction: row;
+	  gap: 100px;
+	  justify-content: center;
+	}
+
+	table {
+	  width: 600px;
+	  height: 600px;
+	  gap: 10px;
+	  padding: 10px;
+	  background-color: hsl(186, 56%, 23%);
+	}
+
+	table, th, td {
+		border: 1px solid;
+	}
+
+	td {
+		width: 25px;
+		height: 25px;
+	}
+
+	td textarea {
+		width:100%;
+		height:100%;
+		align-content: center;
+		resize:none;
+		text-align:right;
+	}
+
+	textarea.editable:disabled {
+		background-color: white;
+		border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	}
+
+	.preset:before {
+		content: ''; 
+		height: 1px;
+		width: var(--somewidth, 73px);
+		background-color: black;
+		position: absolute;
+		transform: rotate(var(--someangle, "45deg"));
+		transform-origin: 0px 0px;
+	}
+
+	.preset{
+		background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+		color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+		border-color: rgba(118, 118, 118, 0.3);
+	}
+	
+	#check_reset {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	h1 {
+	  font-family: Raleway, sans-serif;
+	  font-weight: 700;
+	  text-align: center;
+	  color: white;
+	  font-size: 5rem;
+	  letter-spacing: -2px;
+	  line-height: .6;
+	  margin-bottom: 1rem;
+	}
+
+	h2 {
+	  font-family: Raleway, sans-serif;
+	  font-weight: 600;
+	  text-align: center;
+	  color: white;
+	  font-size: 4rem;
+	  letter-spacing: -2px;
+	  line-height: .6;
+	  margin-bottom: 1rem;
+	}
+
+	h3{
+	  font-family: Raleway, sans-serif;
+	  text-align: center;
+	  font-size: 1rem;
+	  letter-spacing: -2px;
+	  line-height: .6;
+	  margin-bottom: 1rem;
+	}
+
+	#menu {
+	  width: 300px;
+	  height:50%;
+	  background: white;
+	  border-radius: 10px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  padding: 15px;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  overflow-y: auto;
+	  overflow-x: hidden;
+	  gap:10px;
+	}
+
+	.menu {
+	  display: inline-block;
+	  width: 200px;
+	}
+
+	.panel{
+	  width: 300px;
+	  display: flex;
+	  flex-direction: column;
+	  gap:10px;
+	}
+
+	button {
+		height : 40px;
+		width : 90px;
+	}
+
+	.info{
+	  background: white;
+	  border-radius: 10px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  overflow-y: auto;
+	  overflow-x: hidden;
+	  padding:10px;
+	}
+
+	#result{
+	  width: 100%;
+	  height:10%;
+	}
+
+	button:disabled{
+		background-color: ButtonFace;
+	}
+
+	#help{
+		height : 20px;
+		width : 45px;
+	}
+
+	#instructions{
+		display:none;
+	}
 }
 
-#container {
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
-  justify-content: center;
-}
+@media print{
+	.panel, #title{
+		display:none;
+	}
 
-#check_reset {
-	display: flex;
-	justify-content: space-between;
-}
+	#container {
+	  display: flex;
+	  flex-direction: row;
+	  gap: 100px;
+	  justify-content: center;
+	}
 
-h1 {
-  font-family: Raleway, sans-serif;
-  font-weight: 700;
-  text-align: center;
-  color: white;
-  font-size: 5rem;
-  letter-spacing: -2px;
-  line-height: .6;
-  margin-bottom: 1rem;
-}
+	table {
+	  width: 600px;
+	  height: 600px;
+	  gap: 10px;
+	  padding: 10px;
+	  background-color: hsl(186, 56%, 23%);
+	}
 
-h2 {
-  font-family: Raleway, sans-serif;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  font-size: 4rem;
-  letter-spacing: -2px;
-  line-height: .6;
-  margin-bottom: 1rem;
-}
+	table, th, td {
+		border: 1px solid;
+		border-color:black;
+	}
 
-h3{
-  font-family: Raleway, sans-serif;
-  text-align: center;
-  font-size: 1rem;
-  letter-spacing: -2px;
-  line-height: .6;
-  margin-bottom: 1rem;
-}
+	td {
+		width: 25px;
+		height: 25px;
+	}
 
-#menu {
-  width: 300px;
-  height:50%;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-  gap:10px;
-}
+	td textarea {
+		width:100%;
+		height:100%;
+		align-content: center;
+		resize:none;
+		text-align:right;
+	}
 
-.menu {
-  display: inline-block;
-  width: 200px;
-}
+	textarea.editable:disabled {
+		background-color: white;
+		border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	}
 
-.panel{
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap:10px;
-}
+	.preset:before {
+		content: ''; 
+		height: 1px;
+		width: var(--somewidth, 73px);
+		background-color: black;
+		position: absolute;
+		transform: rotate(var(--someangle, "45deg"));
+		transform-origin: 0px 0px;
+	}
 
-table {
-  width: 600px;
-  height: 600px;
-  gap: 10px;
-  padding: 10px;
-  background-color: hsl(186, 56%, 23%);
-}
-
-table, th, td {
-	border: 1px solid;
-}
-
-td {
-	width: 25px;
-	height: 25px;
-}
-
-td textarea {
-	width:100%;
-	height:100%;
-	align-content: center;
-	resize:none;
-	text-align:right;
-}
-
-textarea.editable:disabled {
-	background-color: white;
-	border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-}
-
-.preset:before {
-    content: ''; 
-    height: 1px;
-    width: var(--somewidth, 73px);
-    background-color: black;
-    position: absolute;
-    transform: rotate(var(--someangle, "45deg"));
-    transform-origin: 0px 0px;
-}
-
-.preset{
-	background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
-    color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
-    border-color: rgba(118, 118, 118, 0.3);
-}
-
-button {
-	height : 40px;
-	width : 90px;
-}
-
-.info{
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding:10px;
-}
-
-#result{
-  width: 100%;
-  height:10%;
-}
-
-button:disabled{
-	background-color: ButtonFace;
-}
-
-#help{
-	height : 20px;
-	width : 45px;
-}
-
-#instructions{
-	display:none;
+	.preset{
+		background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+		color: light-dark(rgb(84, 84, 84), rgb(170, 170, 170));
+		border-color: rgba(118, 118, 118, 0.3);
+	}
 }

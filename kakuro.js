@@ -362,6 +362,10 @@ function helpHandler(){
 	}
 }
 
+function printHandler(){
+	window.print();
+}
+
 document.getElementById("construct_board").addEventListener("click",
 function(){constructBoard(
 parseInt(document.getElementById("height-inp").value), 
@@ -372,6 +376,7 @@ parseInt(document.getElementById("diff-inp").value) )});
 document.getElementById("check").addEventListener("click",checkHandler);
 document.getElementById("reset").addEventListener("click",erase);
 document.getElementById("new").addEventListener("click",function(){constructBoard(height, width, base, difficulty)});
+document.getElementById("print").addEventListener("click",printHandler);
 
 document.getElementById("help").addEventListener("click",helpHandler);
 
