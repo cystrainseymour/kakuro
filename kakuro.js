@@ -6,7 +6,7 @@ var base;
 var difficulty;
 
 function setUp(){
-	let defaults = [5, 5, 10, 1];	
+	let defaults = [10, 10, 10, 1];	
 	
 	document.getElementById("height-inp").value = defaults[0];
 	document.getElementById("width-inp").value = defaults[1];
@@ -407,7 +407,7 @@ function moveFocus(direction){
 				break;
 		}
 	} catch(err) {
-		console.log(err);
+		
 	}
 }
 
@@ -419,11 +419,12 @@ function arrowHandler(event){
 }
 
 document.getElementById("construct_board").addEventListener("click",
-function(){constructBoard(
-parseInt(document.getElementById("height-inp").value), 
-parseInt(document.getElementById("width-inp").value), 
-parseInt(document.getElementById("base-inp").value), 
-parseInt(document.getElementById("diff-inp").value) )});
+	function() {constructBoard(
+	parseInt(document.getElementById("height-inp").value), 
+	parseInt(document.getElementById("width-inp").value), 
+	parseInt(document.getElementById("base-inp").value), 
+	parseInt(document.getElementById("diff-inp").value) 
+	)});
 
 document.getElementById("check").addEventListener("click",checkHandler);
 document.getElementById("reset").addEventListener("click",erase);
